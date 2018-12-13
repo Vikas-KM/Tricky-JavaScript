@@ -1,7 +1,9 @@
-var x =1;
-var output = (function() {
-    delete x;
-    return x;
-  })();
-  
-  console.log(output);
+let name='John';
+let age=35;
+
+let obj = {
+	"name":'JohnDoe',
+	"age":27
+};
+
+console.log(obj['name'], obj.age);

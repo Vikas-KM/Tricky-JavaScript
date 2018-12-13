@@ -1,9 +1,11 @@
+//* Notes Made during Javascipt Fine tuning and learning
+
 //! #1
 var text = null;
 console.log(typeof text);   // prints object
 
 //! #2
-var text = null;
+var text;
 console.log(typeof text);   // prints undefined
 
 //! #3
@@ -62,7 +64,7 @@ console.log(foo2());    // undefined
 
 //! #10
 if(1){
-    let name='vikas';
+    let name='John';
 }
 console.log(name);  // ReferenceError: name is not defined
 
@@ -82,26 +84,26 @@ fn(10);	//10 undefined
 fn(undefined,10);	//10 10
 
 //! 13
-let name='Vikas';
-let age=35;
+let name='John';
+let age=30;
 
 let obj = {
 	name,
 	age
 };
 
-console.log(obj.name, obj.age);	//Vikas 35
+console.log(obj.name, obj.age);	//John 30
 
 //! 14
-let name='Vikas';
+let name='John';
 let age=35;
 
 let obj = {
-	"name":'VikasKM',
+	"name":'JohnDoe',
 	"age":27
 };
 
-console.log(obj['name'], obj.age);	//VikasKM 35 // look at the console log syntax
+console.log(obj['name'], obj.age);	//JohnDoe 35 // look at the console log syntax
 
 //! 15
 let numbers = [1,2,3];
@@ -175,7 +177,7 @@ for (let element of numbers){
 
 //! #21
 let person = {
-    name:'Vikas',
+    name:'John',
     hobbies:['walking','sudoku','reading','watching movies'],
     [Symbol.iterator]: function(){
         let i =0;
@@ -199,13 +201,13 @@ for(let hobby of person){
 
 //! #22
 function *select(){
-    yield 'Vikas';
-    yield 'KM';
+    yield 'John';
+    yield 'Doe';
 }
 
 let it = select();
-console.log(it.next()); //{ value: 'Vikas', done: false }
-console.log(it.next()); //{ value: 'KM', done: false }
+console.log(it.next()); //{ value: 'John', done: false }
+console.log(it.next()); //{ value: 'Doe', done: false }
 console.log(it.next()); //{ value: undefined, done: true }
 
 //! #23
@@ -286,10 +288,10 @@ newArr.push(1);
 console.log(newArr);    //[ 1, 2, 3, 4, 5, 1 ]
 
 //! #28
-let vik = 10 || 12;     //In OR if first value is true then its done
-console.log(vik);   // 10
-vik = 10 && 12;         //In AND it goes till the last value
-console.log(vik);   // 12
+let num = 10 || 12;     //In OR if first value is true then its done
+console.log(num);   // 10
+num = 10 && 12;         //In AND it goes till the last value
+console.log(num);   // 12
 
 //! #29
 let arr = [1,2,3,4,5];
@@ -314,4 +316,21 @@ console.log(Array.isArray(arr));
 // if obj is Array returns true;
 // else it returns false;
 
-//
+//! #31
+var x =1;
+var output = (function() {
+    delete x;
+    return x;
+  })();
+  
+console.log(output); //Expected 1
+//learn where delete is used
+
+//! #32
+var output = (function(x) {
+    delete x;
+    return x;
+    })(0);
+  
+console.log(output); //Expected 1
+// learn when delete is used
